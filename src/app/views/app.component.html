@@ -1,0 +1,26 @@
+<div class="container">
+	<md-sidenav-container>
+		<md-toolbar color="primary" class="md-toolbar">
+			<button class="md-toolbar-icon" md-icon-button (click)="sidenav.toggle()">
+			<md-icon>menu</md-icon>
+			</button>
+			<span routerLink="/entries" style="cursor: pointer">Endless River</span>
+			<!-- This fills the remaining space of the current row -->
+			<span style="flex: 1 1 auto;"></span>
+			<button class="md-toolbar-icon" md-icon-button [mdMenuTriggerFor]="menu">
+			<md-icon>more_vert</md-icon>
+			</button>
+			<md-menu #menu="mdMenu">
+				<div #menuTarget></div>
+			</md-menu>	
+		</md-toolbar>
+		
+		<md-sidenav #sidenav [mode]="push" >
+			<nb-sidenav></nb-sidenav>
+		</md-sidenav>
+		
+			<router-outlet></router-outlet>
+		
+	</md-sidenav-container>
+<div>
+

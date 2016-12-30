@@ -1,0 +1,8 @@
+<h3 md-subheader>Tags</h3>
+<md-list-item *ngFor="let tag of tags" style="cursor: pointer;" [routerLink]="'tag/' + tag.slug">
+	<!--<md-icon style="margin-right: 12px;">loyalty</md-icon>-->
+	<h4>#{{tag.name}}</h4>
+	<span style="flex: 1 1 auto;"></span>
+	{{tag.freq}}
+</md-list-item>
+<md-divider></md-divider>

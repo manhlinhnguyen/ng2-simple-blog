@@ -1,0 +1,22 @@
+<md-card *ngIf="entry.isPublic" class="card entrylist-item-card">
+  	<div class="clickable" (click)="onCardClick()">
+        <div class="card-header"> 	
+        	<h2>{{entry.title}}</h2>
+        	<h5>{{entry.createdAt | date: 'medium'}}</h5>
+        </div>
+        <br>
+        <div class="card-image" *ngIf="hasImg">
+            <img src="{{entry.imgPath}}">
+        </div>
+        <md-card-content>
+        	<div [innerHTML]="strippedContentHTML | slice:0:300 ">
+            </div>
+        </md-card-content>
+    </div>
+    <hr>
+	<md-chip-list *ngIf="hasTag">
+		<md-chip *ngFor="let tag of tags" color="primary" selected="true" style="cursor: pointer; " (click)="onTagClick(tag)">
+			{{tag}}
+		</md-chip>
+	</md-chip-list>
+</md-card>

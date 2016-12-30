@@ -1,0 +1,26 @@
+<div class="entrydetail">
+  <md-card *ngIf="foundEntry">
+    <div class="card-header">
+      <h1>{{selectedEntry?.title}}</h1>
+      <h5>{{selectedEntry?.createdAt | date: 'medium'}}</h5>
+    </div>
+    <br>
+
+    <md-card-content>
+      <div class="card-content" [innerHTML]="selectedEntry?.contentHTML">
+      </div>
+      <br>
+      <div style="text-align: right;"><i>Last Update At: {{selectedEntry?.updatedAt | date: 'medium'}}</i></div>
+      <hr>
+      <md-chip-list class="card-tags" *ngIf="hasTag">
+        <md-chip *ngFor="let tag of tags" color="primary" selected="true" style="cursor: pointer;" (click)="onTagClick(tag)">
+          {{tag}}
+        </md-chip>
+      </md-chip-list>
+    </md-card-content>
+  </md-card>
+
+  <nb-page-not-found *ngIf="!foundEntry">
+  </nb-page-not-found>
+</div>
+

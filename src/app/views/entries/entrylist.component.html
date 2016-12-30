@@ -1,0 +1,9 @@
+<div class="entrylist" *ngIf="foundEntry">
+    <nb-entrylist-item *ngFor="let entry of entries" [entry]="entry">
+    </nb-entrylist-item>
+</div>
+
+<nb-page-not-found *ngIf="!foundEntry">
+</nb-page-not-found>
+
+
